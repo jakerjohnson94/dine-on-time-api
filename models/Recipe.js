@@ -2,6 +2,10 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const recipeSchema = new Schema({
+  id: {
+    required: true,
+    type: Number
+  },
   qrcode: {
     type: Buffer,
   },
@@ -30,8 +34,34 @@ const recipeSchema = new Schema({
     type: Number,
     required: true,
   },
-  ingredients: {
-    type: [ {
+  ingredients: [{
+    id: {
+      type: Number,
+      required: true,
+    },
+    name: {
+      type: String,
+      required: true,
+    },
+    quantity: {
+      type: Number,
+      required: true,
+    },
+  }],
+  steps: [{
+    timeRequired: {
+      type: Number,
+      required: true,
+    },
+    instructions: {
+      type: Number,
+      required: true,
+    },
+    optionalImg: {
+      type: Buffer,
+      required: true,
+    },
+    ingredientsRequired: [{
       id: {
         type: Number,
         required: true,
@@ -44,43 +74,7 @@ const recipeSchema = new Schema({
         type: Number,
         required: true,
       },
-    } ],
-    required: true,
-  },
-  steps: {
-    type: [ {
-      timeRequired: {
-        type: Number,
-        required: true,
-      },
-      instructions: {
-        type: Number,
-        required: true,
-      },
-      optionalImg: {
-        type: Buffer,
-        required: true,
-      },
-      ingredientsRequired: {
-        type: [ {
-          id: {
-            type: Number,
-            required: true,
-          },
-          name: {
-            type: String,
-            required: true,
-          },
-          quantity: {
-            type: Number,
-            required: true,
-          },
-        } ],
-        required: true,
-      },
-    } ],
-    required: true,
-  },
+    }],
+  }],
 });
-
-module.exports = mongoose.model( 'Recipe', recipeSchema );
+module.exports = mongoose.model('Recipe', recipeSchema);
