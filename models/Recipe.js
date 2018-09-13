@@ -44,7 +44,7 @@ const recipeSchema = new Schema({
       required: true,
     },
     quantity: {
-      type: Number,
+      type: String,
       required: true,
     },
   }],
@@ -71,7 +71,7 @@ const recipeSchema = new Schema({
         required: true,
       },
       quantity: {
-        type: Number,
+        type: String,
         required: true,
       },
     }],
