@@ -2,6 +2,12 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const recipeSchema = new Schema({
+  _id: {
+    required: true,
+    type: Number
+  },
+  recipeTitle: String,
+  recipeSubtitle: String,
   qrcode: {
     type: Buffer,
   },
@@ -15,9 +21,6 @@ const recipeSchema = new Schema({
     type: String,
     required: true,
   },
-  prepInstructions: {
-    type: String,
-  },
   totalPrepTime: {
     type: Number,
     required: true,
@@ -26,13 +29,55 @@ const recipeSchema = new Schema({
     type: Number,
     required: true,
   },
-  totalTimeForRecipe: {
-    type: Number,
-    required: true,
-  },
-  ingredients: {
-    type: [ {
-      id: {
+  ingredients: [{
+    ingredientId: {
+      type: Number,
+      required: true,
+    },
+    name: {
+      type: String,
+      required: true,
+    },
+    quantity: {
+      type: String,
+      required: true,
+    },
+    img: {
+      type: String,
+      required: false
+    }
+  }],
+  steps: [{
+    stepId: {
+      type: Number,
+      required: true
+    },
+    title: {
+      type: String,
+      required: true
+    },
+    alertTime: {
+      type: Number,
+      required: true,
+    },
+    activeTime: {
+      type: Number,
+      required: true,
+    },
+    instructions: {
+      type: String,
+      required: true,
+    },
+    optionalImg: {
+      type: Buffer,
+      required: true,
+    },
+    isPrepStep: {
+      type: Boolean,
+      required: false,
+    },
+    ingredientsRequired: [{
+      ingredientId: {
         type: Number,
         required: true,
       },
@@ -40,47 +85,11 @@ const recipeSchema = new Schema({
         type: String,
         required: true,
       },
-      quantity: {
-        type: Number,
-        required: true,
-      },
-    } ],
-    required: true,
-  },
-  steps: {
-    type: [ {
-      timeRequired: {
-        type: Number,
-        required: true,
-      },
-      instructions: {
-        type: Number,
-        required: true,
-      },
-      optionalImg: {
-        type: Buffer,
-        required: true,
-      },
-      ingredientsRequired: {
-        type: [ {
-          id: {
-            type: Number,
-            required: true,
-          },
-          name: {
-            type: String,
-            required: true,
-          },
-          quantity: {
-            type: Number,
-            required: true,
-          },
-        } ],
-        required: true,
-      },
-    } ],
-    required: true,
-  },
+      img: {
+        type: String,
+        required: false,
+      }
+    }],
+  }],
 });
-
-module.exports = mongoose.model( 'Recipe', recipeSchema );
+module.exports = mongoose.model('Recipe', recipeSchema);
