@@ -4,7 +4,8 @@ const mongoose = require('mongoose');
 
 const port = 3000
 
-mongoose.connect('mongodb://localhost/dine-on-time');
+// mongoose.connect('mongodb://localhost/dine-on-time');
+mongoose.connect('mongodb://jarijohn:FuckYouBob2018@ds155292.mlab.com:55292/dine-on-time')
 
 const app = express()
 
@@ -24,7 +25,7 @@ app.get('/recipes', (req, res) => {
 // Get recipe by ID
 app.get('/recipe/:id', (req, res) => {
     recipeModel.findOne({
-        id: req.params.id
+        _id: req.params.id
     }, (err, recipe) => {
         if (err) return console.error(err)
         else if (recipe === null) {
