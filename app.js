@@ -1,15 +1,19 @@
 const express = require('express')
 const recipeModel = require('./models/Recipe.js');
 const mongoose = require('mongoose');
+const cors = require('cors');
 
 const port = 3000
+
+
 
 // mongoose.connect('mongodb://localhost/dine-on-time');
 mongoose.connect('mongodb://jarijohn:FuckYouBob2018@ds155292.mlab.com:55292/dine-on-time')
 
-const app = express()
+const app = express();
 
-app.use(express.json())
+app.use(cors);
+app.use(express.json());
 
 
 // Get all recipes
