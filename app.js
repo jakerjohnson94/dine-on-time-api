@@ -3,7 +3,7 @@ const recipeModel = require('./models/Recipe.js');
 const mongoose = require('mongoose');
 const cors = require('cors');
 
-const port = 3000
+const port = 3000 || process.env.PORT;
 
 
 
