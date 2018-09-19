@@ -12,7 +12,7 @@ mongoose.connect('mongodb://jarijohn:FuckYouBob2018@ds155292.mlab.com:55292/dine
 
 const app = express();
 
-app.use(cors);
+app.use(cors());
 app.use(express.json());
 
 
