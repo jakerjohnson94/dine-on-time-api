@@ -30,9 +30,9 @@ app.get('/recipes', (req, res) => {
 })
 
 // Get recipe by ID
-app.get('/recipe/:id', (req, res) => {
+app.get('/recipe/:blueApronId', (req, res) => {
     recipeModel.findOne({
-        _id: req.params.id
+        blueApronId: req.params.blueApronId
     }, (err, recipe) => {
         if (err) return console.error(err)
         else if (recipe === null) {
