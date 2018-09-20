@@ -32,7 +32,7 @@ app.get('/recipes', (req, res) => {
 // Get recipe by ID
 app.get('/recipe/:id', (req, res) => {
     recipeModel.findOne({
-        id: req.params.id
+        _id: req.params.id
     }, (err, recipe) => {
         if (err) return console.error(err)
         else if (recipe === null) {
