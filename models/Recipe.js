@@ -6,6 +6,10 @@ const recipeSchema = new Schema({
     required: true,
     type: Number
   },
+  blueApronId: {
+    required: true,
+    type: Number
+  },
   recipeTitle: String,
   recipeSubtitle: String,
   qrcode: {
