@@ -26,19 +26,19 @@ const recipeSchema = new Schema({
       required: true
     },
     img:{
-      type: Buffer,
+      type: String,
       required: true
     },
   }],
 
   qrcode: {
-    type: Buffer,
+    type: String,
   },
   image: {
-    type: Buffer,
+    type: String,
   },
   pdf: {
-    type: Buffer,
+    type: String,
   },
   description: {
     type: String,
@@ -66,7 +66,7 @@ const recipeSchema = new Schema({
       required: true,
     },
     img: {
-      type: Buffer,
+      type: String,
       required: false
     }
   }],
@@ -96,7 +96,7 @@ const recipeSchema = new Schema({
       required: true,
     },
     optionalImg: {
-      type: Buffer,
+      type: String,
       required: true,
     },
     isPrepStep: {
