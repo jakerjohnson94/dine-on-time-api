@@ -22,10 +22,11 @@ const recipeSchema = new Schema({
       required: true
     },
     img:{
-      type: String,
+      type: Buffer,
       required: true
     },
   }],
+
   qrcode: {
     type: Buffer,
   },
