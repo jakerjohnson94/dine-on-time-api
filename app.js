@@ -21,12 +21,13 @@ app.get('/', (req, res) => {
 
 // Get all recipes
 app.get('/recipes', (req, res) => {
-  recipeModel.find((err, recipes) => {
-    if (err) return console.error(err);
 
+    recipeModel.find((err, recipes) => {
+        if (err) return console.error(err)
 
-  }).then(recipe=>res.json());
-});
+        res.send(recipes)
+    })
+})
 
 // Get recipe by ID
 app.get('/recipe/:id', (req, res) => {
