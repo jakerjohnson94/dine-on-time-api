@@ -6,8 +6,26 @@ const recipeSchema = new Schema({
     required: true,
     type: Number
   },
-  recipeTitle: String,
-  recipeSubtitle: String,
+  title: String,
+  subtitle: String,
+  winePairings:[{
+    name:{
+      type: String,
+      required: true
+    },
+    style:{
+      type: String,
+      required: true
+    },
+    year:{
+      type: String,
+      required: true
+    },
+    img:{
+      type: String,
+      required: true
+    },
+  }],
   qrcode: {
     type: Buffer,
   },
@@ -43,7 +61,7 @@ const recipeSchema = new Schema({
       required: true,
     },
     img: {
-      type: String,
+      type: Buffer,
       required: false
     }
   }],
@@ -59,6 +77,10 @@ const recipeSchema = new Schema({
     alertTime: {
       type: Number,
       required: true,
+    },
+    alertMessage: {
+      type: String,
+      required: false,
     },
     activeTime: {
       type: Number,
