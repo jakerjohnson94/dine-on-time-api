@@ -4,10 +4,6 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-<<<<<<< HEAD
-    "all": "^0.0.0",
-=======
->>>>>>> c071c5082f84ce84056e2749979d3ca057dc87be
     "cors": "^2.8.4",
     "express": "^4.16.3",
     "mongoose": "^5.2.14"
