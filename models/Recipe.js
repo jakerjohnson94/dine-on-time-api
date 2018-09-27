@@ -6,6 +6,10 @@ const recipeSchema = new Schema({
     required: true,
     type: Number
   },
+  blueApronId: {
+    type: Number,
+    required: true
+  },
   title: String,
   subtitle: String,
   winePairings:[{
